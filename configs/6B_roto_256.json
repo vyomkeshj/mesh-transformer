@@ -37,11 +37,11 @@
   ],
 
   "val_batches": 100,
-  "val_every": 500,
-  "ckpt_every": 500,
-  "keep_every": 10000,
+  "val_every": 10,
+  "ckpt_every": 20,
+  "keep_every": 30,
 
-  "name": "GPT3_6B_pile_rotary",
-  "wandb_project": "mesh-transformer-jax",
+  "name": "GPT3_6B_sql",
+  "wandb_project": "sql_mesh",
   "comment": ""
 }
