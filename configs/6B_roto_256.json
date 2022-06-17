@@ -12,16 +12,16 @@
   "per_replica_batch": 1,
   "gradient_accumulation_steps": 16,
 
-  "warmup_steps": 3000,
+  "warmup_steps": 700,
   "anneal_steps": 300000,
-  "lr": 1.2e-4,
-  "end_lr": 1.2e-5,
+  "lr": 5e-5,
+  "end_lr": 5e-6,
   "weight_decay": 0.1,
   "total_steps": 350000,
 
-  "tpu_size": 256,
+  "tpu_size": 8,
 
-  "bucket": "neo-models",
+  "bucket": "gpt-j-trainer-sql",
   "model_dir": "mesh_jax_pile_6B_rotary",
 
   "train_set": "pile.train.index",
