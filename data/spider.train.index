@@ -1,1 +1,1 @@
-gs://gpt-j-trainer-sql/train_spider_822.tfrecords
+gs://gpt-j-trainer-sql/val_spider_100.tfrecords
