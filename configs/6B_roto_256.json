@@ -25,7 +25,9 @@
   "model_dir": "mesh_jax_pile_6B_rotary",
 
   "train_set": "spider.train.index",
-  "val_set": "spider.validation.index",
+  "val_set": {
+    "spider": "spider.validation.index"
+  },
 
   "eval_harness_tasks": [
     "lambada",
