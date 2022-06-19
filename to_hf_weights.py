@@ -1,5 +1,5 @@
 ####
-# python to_hf_weights.py --input-ckpt ./step_383500 --config ./configs/6B_roto_256.json --output-path ./gpt-j-6B --cpu --dtype fp32
+# python to_hf_weights.py --input-ckpt ./step_383500 --config ./configs/spider.json --output-path ./gpt-j-6B --cpu --dtype fp32
 ####
 
 import argparse
