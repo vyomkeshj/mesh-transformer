@@ -1,7 +1,7 @@
 import google.cloud.storage as storage
 
 client = storage.Client()
-bucket = storage_client.get_bucket('gpt-j-trainer-sql')
+bucket = client.get_bucket('gpt-j-trainer-sql')
 
 d = 'path/file.txt'
 d = bucket.blob(d)
