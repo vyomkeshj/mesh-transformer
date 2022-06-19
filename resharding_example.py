@@ -47,7 +47,7 @@ network = CausalTransformer(params)
 start = time.time()
 
 # here we load a checkpoint which was written with 8 shards into 1 shard
-network.state = read_ckpt(network.state, "step_383500/", 8, shards_out=cores_per_replica)
+network.state = read_ckpt(network.state, "mesh_jax_pile_6B_rotary/step_101/", 8, shards_out=cores_per_replica)
 
 # move the state to CPU/system memory so it's not duplicated by xmap
 network.state = jax.device_put(network.state, jax.devices("cpu")[0])
