@@ -1,0 +1,139 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.18
+    framework: huggingface
+    huggingface_version: 4.20.0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.9.12
+    start_time: 1655599654
+    t:
+      1:
+      - 1
+      - 3
+      - 11
+      - 12
+      - 30
+      - 49
+      - 55
+      2:
+      - 1
+      - 3
+      - 11
+      - 12
+      - 30
+      - 49
+      - 55
+      3:
+      - 13
+      - 16
+      4: 3.9.12
+      5: 0.12.18
+      6: 4.20.0
+      8:
+      - 5
+anneal_steps:
+  desc: null
+  value: 94
+bucket:
+  desc: null
+  value: gpt-j-trainer-sql
+ckpt_every:
+  desc: null
+  value: 20
+comment:
+  desc: null
+  value: ''
+cores_per_replica:
+  desc: null
+  value: 8
+d_model:
+  desc: null
+  value: 4096
+end_lr:
+  desc: null
+  value: 5.0e-06
+eval_harness_tasks:
+  desc: null
+  value:
+  - lambada
+  - piqa
+  - hellaswag
+  - winogrande
+  - mathqa
+  - pubmedqa
+gradient_accumulation_steps:
+  desc: null
+  value: 32
+keep_every:
+  desc: null
+  value: 30
+layers:
+  desc: null
+  value: 28
+lr:
+  desc: null
+  value: 5.0e-05
+model_dir:
+  desc: null
+  value: mesh_jax_pile_6B_rotary
+n_heads:
+  desc: null
+  value: 16
+n_vocab:
+  desc: null
+  value: 50400
+name:
+  desc: null
+  value: GPT3_6B_sql
+norm:
+  desc: null
+  value: layernorm
+optimizer:
+  desc: null
+  value:
+  - optax._src.combine.chain.<locals>.init_fn
+  - optax._src.combine.chain.<locals>.update_fn
+pe:
+  desc: null
+  value: rotary
+pe_rotary_dims:
+  desc: null
+  value: 64
+per_replica_batch:
+  desc: null
+  value: 1
+seq:
+  desc: null
+  value: 2048
+total_steps:
+  desc: null
+  value: 104
+tpu_size:
+  desc: null
+  value: 8
+train_set:
+  desc: null
+  value: spider.train.index
+val_batches:
+  desc: null
+  value: 100
+val_every:
+  desc: null
+  value: 10
+val_set:
+  desc: null
+  value:
+    spider: spider.validation.index
+wandb_project:
+  desc: null
+  value: sql_mesh
+warmup_steps:
+  desc: null
+  value: 10
+weight_decay:
+  desc: null
+  value: 0.1
