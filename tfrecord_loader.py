@@ -149,7 +149,7 @@ if __name__ == "__main__":
     #     print(i)
     #     break
 
-    d = TFRecordWIT("data/spider.train.index", (8, 32))
+    d = TFRecordLoader("data/spider.train.index", (8, 32))
     for idx, i in enumerate(d.sample_once()):
         print(i)
         break
