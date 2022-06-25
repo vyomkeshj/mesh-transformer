@@ -14,10 +14,10 @@ torch.manual_seed(42)
 tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B", cache_dir=cache)
 tokenizer.pad_token = tokenizer.eos_token
 
-model = GPTJForCausalLM.from_pretrained("gs://gpt-j-trainer-sql/hf_models/wikisql_1", local_files_only=True).cpu()
+model = GPTJForCausalLM.from_pretrained("./", local_files_only=True).cpu()
 
 
-def ask_client(query, dframe, max_length=100):
+def ask_client(query, max_length=100):
     column_names = list(data.columns.values)
     input = f"""Take the database columns in the [Schema Json] section, question in [Question] section and generate SQL for the question on the schema.
     [Schema Json]: "insurance_data":[insured_hobbies, incident_severity, 
@@ -50,11 +50,6 @@ def ask_client(query, dframe, max_length=100):
     print("Query: " + query + '\n')
     return "None"
 
-DATA_CSV_FILE = './gistfile1.txt'
-
-data = pd.read_csv(DATA_CSV_FILE, sep=';')
-data.name = 'data'
-
 your_question = "How many people are over 43 and have a Saab?"
 question_2="Show me the insured customers with who live in the zip 466132"
-ask_client(your_question, data)
+ask_client(your_question)
