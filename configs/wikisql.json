@@ -14,7 +14,7 @@
 
   "warmup_steps": 45,
   "anneal_steps": 409,
-  "lr": 3e-5,
+  "lr": 2e-5,
   "end_lr": 1e-6,
   "weight_decay": 0.1,
   "total_steps": 454,
@@ -39,9 +39,9 @@
   ],
 
   "val_batches": 100,
-  "val_every": 20,
-  "ckpt_every": 70,
-  "keep_every": 80,
+  "val_every": 50,
+  "ckpt_every": 130,
+  "keep_every": 150,
 
   "name": "GPT3_6B_sql_wiki",
   "wandb_project": "sql_mesh",
