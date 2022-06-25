@@ -1,1 +1,1 @@
-gs://gpt-j-trainer-sql/data/training_wikisql_759.tfrecords
+gs://gpt-j-trainer-sql/data/validation_wikisql_759.tfrecords
