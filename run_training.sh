@@ -1,6 +1,6 @@
 #!/bin/bash
 conda activate ml_exp
-export GOOGLE_APPLICATION_CREDENTIALS="/home/jha0007/sac.json”
+export GOOGLE_APPLICATION_CREDENTIALS=/home/jha0007/sac.json
 cd mesh_transformer
 python3 create_finetune_tfrecords.py ./data/sql_data/train_wikisql.txt "training_wikisql" --normalize-with-ftfy --n-repack-epochs 6 --output-dir gs://gpt-j-trainer-sql/data/
 python3 create_finetune_tfrecords.py ./data/sql_data/validation_wikisql.txt "validation_wikisql" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/

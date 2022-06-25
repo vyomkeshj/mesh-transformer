@@ -33,8 +33,9 @@ def ask_client(query, dframe, max_length=100):
                                     early_stopping=True,
                                     top_k=50,
                                     max_length=350,
-                                    top_p=1.0,
-                                    temperature=0.8,
+                                    num_beams: 5,
+                                    top_p=0.95,
+                                    temperature=0.9,
                                     num_return_sequences=1)
     for i, sample_output in enumerate(sample_outputs):
         current_output = tokenizer.decode(sample_output, skip_special_tokens=True)
@@ -47,13 +48,6 @@ def ask_client(query, dframe, max_length=100):
     before, sep, after = output.partition('SELECT')
     query = sep + after
     print("Query: " + query + '\n')
-    print("Result: \n")
-    try:
-        result = ps.sqldf(query, globals())
-        return result
-    except:
-        print("Failed to execute query")
-    # print(result)
     return "None"
 
 DATA_CSV_FILE = './gistfile1.txt'
