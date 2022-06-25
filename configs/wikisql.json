@@ -26,7 +26,7 @@
 
   "train_set": "wikisql.train.index",
   "val_set": {
-    "spider": "spider.validation.index"
+    "wikisql": "wikisql.validation.index"
   },
 
   "eval_harness_tasks": [
