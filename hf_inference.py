@@ -14,7 +14,7 @@ torch.manual_seed(42)
 tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B", cache_dir=cache)
 tokenizer.pad_token = tokenizer.eos_token
 
-model = GPTJForCausalLM.from_pretrained("./hf_sql/", local_files_only=True).cpu()
+model = GPTJForCausalLM.from_pretrained("gs://gpt-j-trainer-sql/wikisql_model/step_131", local_files_only=True).cpu()
 
 
 def ask_client(query, dframe, max_length=100):
