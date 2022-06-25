@@ -33,7 +33,7 @@ def ask_client(query, dframe, max_length=100):
                                     early_stopping=True,
                                     top_k=50,
                                     max_length=350,
-                                    num_beams: 5,
+                                    num_beams=5,
                                     top_p=0.95,
                                     temperature=0.9,
                                     num_return_sequences=1)
