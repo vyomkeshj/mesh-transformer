@@ -1,4 +1,4 @@
 *.pyc
 *.pprof
 /ckpt/
-ml_exp.yml
+./ml_exp.yml
