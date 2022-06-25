@@ -29,17 +29,8 @@
     "spider": "wikisql.validation.index"
   },
 
-  "eval_harness_tasks": [
-    "lambada",
-    "piqa",
-    "hellaswag",
-    "winogrande",
-    "mathqa",
-    "pubmedqa"
-  ],
-
   "val_batches": 100,
-  "val_every": 10,
+  "val_every": 30,
   "ckpt_every": 50,
   "keep_every": 100,
 
