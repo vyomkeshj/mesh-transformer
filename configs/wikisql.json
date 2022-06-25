@@ -22,7 +22,7 @@
   "tpu_size": 8,
 
   "bucket": "gpt-j-trainer-sql",
-  "model_dir": "mesh_sql",
+  "model_dir": "wikisql_model",
 
   "train_set": "wikisql.train.index",
   "val_set": {
