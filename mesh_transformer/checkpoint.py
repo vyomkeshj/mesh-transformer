@@ -42,8 +42,8 @@ def write(x, ckpt_dir):
                 # cloudpickle.dump(i, f)
                 # print(f"written {idx} in {time.time() - start:.06}s")
             return
-        except:
-            print("save failed, trying again")
+        except Exception as e:
+            print("save failed, trying again:"+str(e))
 
     print("save failed 3 times, exiting")
     raise Exception("save failed")

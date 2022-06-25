@@ -1,0 +1,13 @@
+
+{
+  "type": "service_account",
+  "project_id": "our-campus-336407",
+  "private_key_id": "a598882f6f5acd2dd8521e3e35580fad4f2babd7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3PWqTWhA4UZOT\nGzoBHDZWmAcBGkK2cs+KXKux5Y2uu1LkBhNuw27Wxd0Vo77OejiXZ1TXyO9U9suI\nzBevNhznxdyYLmGKfWFVgGxy9k/f8A+Xl9M3oCXfq/9tU8vvwkA0rVFmc1FuOsts\nsm79bSvJrrdEU7alWcMJpJ2pcucTa6B3Er1OIvAY9S2wADS+kjW3BHXRuI7DwKGV\ng1p3eM1E6qjXW+9ZYrbltfG8tkuuans96bRrTCtpm1ZopeHK4kmj7h2NHrM6U+V4\nJCwAlqswCxWUw+lG4n0ieNnvyudft9hw53tRJCNi/wqTVkIHWkOid8vmVvsusG7h\nSf1a8n/zAgMBAAECggEAAcJ98p8U2UWcnmTOl0Yjd6TCNr9ObxbJLOKPzgea83Az\nrBxDBI+5iIlxP3qq8vUn5/mn7JlA+Z/c73uGqfDPnuuH3C+dFKtBlKkOKrYvIwvx\nMgKwikJDnF97M325nqgqSx1PLns3+5laL9GSGg/nhwjWLK5VIVMyc5evQvpU5Lml\nKnWEiMOtekaPd6CO4plIhtuIdH9liSKiHYbMvmaXfl4PrLd4yI/WcQDbRUfcS7ax\nbvzcheYc0FK5E3obcZr8fao3LO2AOGHFexPuYQYVD0KTn3+cSiLlZar+JcCsnMaM\njXNIpjE/cbYEpF+yXSN30W/p325vUSyAOEREgHFU2QKBgQDzGOapcRPrLYYSFlHT\nNq2+3uH0xhIjVefnHIyODLFcmqL04IXvwDuIIREZH5OUhD9Tulmeq61elE7K/m3z\neUg+cyytc5Ic8LAiT+4Cd0n4tTqUPwo984+e0uLt7hLLC0Npu9hppAWdKAOcdHGm\nYEOnrgo27o0jx7SoCGTsS4yARwKBgQDA9zMhcVHSQADAQd8FbPCTr35hML5xaSsF\nrOhRFzNyImnQZDEZtpzKNfx+4SoN5eDGkPtWHMJS0zOvzi9OI0o0TDlbr0lzuRKq\nvGkXWQnDRN1k96vZN34OraNIu5k0R9t/OrGrhjDSJ3uz9fbOLQkCqxv9ZpviXo34\nAOMgiaBk9QKBgA1UzkF4jAkXpASV6MLWesy+2FFeE1yQt3j7HdIkbA2SBWG8dlvh\nhOJAPfnMu4Enh3mF/Kgw7f8DzxZewZTaj9Ws50RT1C12HZKkI39LH2leNuouUtd2\n5edl1UALEEjGQ1onDQUuE4i8ywXndNwU52DosHK2vlK5/vRAEZjLw9a9AoGBAJUY\nKzSCxzKJa0shWj1p7/RcW2yi6fLczHYFJDdLkt90AYgXceypMTn4PpCWTxUP8f3a\nlafybp7qOvxydhCMqdAAuSzDIiC89dRf4V8915I9ykYyK2CZRNf4h7ox4O0JPGpw\nokiiVWR7R1REDp89IsIiDW1cc8OTRWRC4zsHu5tlAoGAdIfxtYfcIVEjo7De7dm6\nTfCBr/BQUxJF34Oy4WDwlYRKbesD5xEEabqZDKoI5AXOqEzoU+ARHzzBL7CzQbok\n0olJ2+Px95q4xdNVBf/Psz3PS8/FRey4LCbAneMl3kV13tgdX1/+n3HgiKie6gY7\nPr0/BkZs10+FHYqNwr4gxOQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tpu-access-575@our-campus-336407.iam.gserviceaccount.com",
+  "client_id": "117370066087120410981",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tpu-access-575%40our-campus-336407.iam.gserviceaccount.com"
+}
