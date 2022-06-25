@@ -18,7 +18,6 @@ model = GPTJForCausalLM.from_pretrained("./wikisql_1", local_files_only=True).cp
 
 
 def ask_client(query, max_length=100):
-    column_names = list(data.columns.values)
     input = f"""Take the database columns in the [Schema Json] section, question in [Question] section and generate SQL for the question on the schema.
     [Schema Json]: "insurance_data":[insured_hobbies, incident_severity, 
     authorities_contacted, incident_hour_of_the_day, number_of_vehicles_involved, 
