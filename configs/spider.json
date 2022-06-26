@@ -33,8 +33,8 @@
   ],
   "val_batches": 100,
   "val_every": 10,
-  "ckpt_every": 20,
-  "keep_every": 30,
+  "ckpt_every": 50,
+  "keep_every": 50,
   "name": "GPT3_6B_sql",
   "wandb_project": "sql_mesh",
   "comment": ""
