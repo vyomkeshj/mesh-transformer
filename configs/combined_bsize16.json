@@ -12,7 +12,7 @@
   "gradient_accumulation_steps": 16,
   "warmup_steps": 24,
   "anneal_steps": 396,
-  "lr": 2e-5,
+  "lr": 1e-5,
   "end_lr": 5e-6,
   "weight_decay": 0.1,
   "total_steps": 420,
