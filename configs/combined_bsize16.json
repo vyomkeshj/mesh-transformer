@@ -26,7 +26,8 @@
 
   "train_set": "combined.train.index",
   "val_set": {
-    "wikisql": "wikisql.validation.index"
+    "wikisql": "wikisql.validation.index",
+    "spider": "spider.validation.index"
   },
 
   "val_batches": 100,
