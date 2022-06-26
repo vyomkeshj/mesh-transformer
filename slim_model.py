@@ -78,5 +78,5 @@ if __name__ == "__main__":
         suffix = "_slim_f16" if args.f16 else "_slim"
 
         for i in range(cores_per_replica):
-            write_ckpt(network.state, f"/home/jha0007/deploy/gpt-j-api/weights/step_{ckpt_step}/", i)
+            write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
             print(f"written shard {i}")
