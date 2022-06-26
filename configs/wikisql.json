@@ -21,7 +21,8 @@
   "model_dir": "wikisql_model",
   "train_set": "wikisql.train.index",
   "val_set": {
-    "wikisql": "wikisql.validation.index"
+    "wikisql": "wikisql.validation.index",
+    "spider": "spider.validation.index"
   },
   "eval_harness_tasks": [
     "lambada",
