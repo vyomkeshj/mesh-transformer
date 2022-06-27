@@ -12,8 +12,8 @@
   "gradient_accumulation_steps": 8,
   "warmup_steps": 143,
   "anneal_steps": 1295,
-  "lr": 3e-5,
-  "end_lr": 5e-6,
+  "lr": 1e-5,
+  "end_lr": 1e-6,
   "weight_decay": 0.1,
   "total_steps": 1438,
   "tpu_size": 8,
@@ -36,7 +36,7 @@
   "val_every": 100,
   "ckpt_every": 500,
   "keep_every": 500,
-  "name": "sql_combined_2",
+  "name": "sql_cleaned",
   "wandb_project": "sql_mesh",
   "comment": ""
 }
