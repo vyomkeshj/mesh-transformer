@@ -6,7 +6,7 @@ python3 create_finetune_tfrecords.py ./data/sql_data/combined.txt "training_comb
 #python3 create_finetune_tfrecords.py ./data/sql_data/validation_wikisql.txt "validation_wikisql" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=./configs/combined_bsize2.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
+python3 ./device_train.py --config=./configs/combined_bsize8.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
 
 # To convert the model to pytorch weights for hugging face inference
 #python3 ./to_hf_weights.py --input-ckpt gs://gpt-j-trainer-sql/sql_combined_16/step_3501 --config ./configs/combined_bsize8.json --output-path ./hf_sql_combined --cpu

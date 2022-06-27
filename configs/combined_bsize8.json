@@ -18,7 +18,7 @@
   "total_steps": 1438,
   "tpu_size": 8,
   "bucket": "gpt-j-trainer-sql",
-  "model_dir": "sql_combined_16",
+  "model_dir": "sql_cleaned",
   "train_set": "combined.train.index",
   "val_set": {
     "wikisql": "wikisql.validation.index",
