@@ -9,11 +9,13 @@ python3 create_finetune_tfrecords.py ./data/sql_data/combined.txt "training_comb
 # To run training with a config and a previous saved model checkpoint
 python3 ./device_train.py --config=$CONFIG_FILE --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
 
+# To make this model available for testing
+
 # you can find the correct one in the cloud bucket at gpt-j-trainer-sql/
-CHECKPOINT_TO_SAVE=1438
+#CHECKPOINT_TO_SAVE=1438
 
 # To convert the model to fp16 for tpu inference, select a saved version
-python3 slim_model.py --config=$CONFIG_FILE --ckpt-step=$CHECKPOINT_TO_SAVE --f16
+#python3 slim_model.py --config=$CONFIG_FILE --ckpt-step=$CHECKPOINT_TO_SAVE --f16
 
 # To convert the model to pytorch weights for hugging face inference
-python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/sql_cleaned_slim_f16/step_""$CHECKPOINT_TO_SAVE" --config $CONFIG_FILE --output-path "gs://gpt-j-trainer-sql/hf_"$CHECKPOINT_TO_SAVE/ --cpu
+#python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/sql_cleaned_slim_f16/step_""$CHECKPOINT_TO_SAVE" --config $CONFIG_FILE --output-path "gs://gpt-j-trainer-sql/hf_"$CHECKPOINT_TO_SAVE/ --cpu
