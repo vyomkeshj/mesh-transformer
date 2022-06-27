@@ -9,7 +9,7 @@ python3 create_finetune_tfrecords.py ./data/sql_data/combined.txt "training_comb
 python3 ./device_train.py --config=./configs/combined_bsize2.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
 
 # To convert the model to pytorch weights for hugging face inference
-#python3 ./to_hf_weights.py --input-ckpt gs://gpt-j-trainer-sql/sql_combined_16/step_3501 --config ./configs/combined_bsize2.json --output-path ./hf_sql_combined --cpu
+#python3 ./to_hf_weights.py --input-ckpt gs://gpt-j-trainer-sql/sql_combined_16/step_3501 --config ./configs/combined_bsize8.json --output-path ./hf_sql_combined --cpu
 
 # To convert the model to fp16 for tpu inference
 python3 slim_model.py --config=./configs/combined_bsize2.json --ckpt-step=3501 --f16
