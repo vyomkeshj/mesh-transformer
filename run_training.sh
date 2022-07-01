@@ -3,7 +3,7 @@ export GOOGLE_APPLICATION_CREDENTIALS=/home/jha0007/sac.json
 CONFIG_FILE="./configs/combined_bsize8.json"
 
 # To convert the data to tfrecords and upload to bucket
-python3 create_finetune_tfrecords.py ./data/sql_data/combined.txt "training_combined_2" --normalize-with-ftfy --n-repack-epochs 3 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/
+python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat.txt "spider_reformat" --normalize-with-ftfy --n-repack-epochs 1 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/
 #python3 create_finetune_tfrecords.py ./data/sql_data/validation_wikisql.txt "validation_wikisql" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
 
 # To run training with a config and a previous saved model checkpoint
