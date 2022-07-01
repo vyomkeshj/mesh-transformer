@@ -16,8 +16,11 @@ python3 ./device_train.py --config=$CONFIG_FILE --tune-model-path=gs://gpt-j-tra
 
 python3 slim_model.py --config=$CONFIG_FILE --f16
 
-tar -zcvf slim_weights.tar.gz ./slim_model/
-gsutil cp ./slim_weights.tar.gz gs://gpt-j-trainer-sql/gpt_fast_deploy_slim/
+cp -r ./slim_model/ ./home/jha0007/api-gpt/slim_model/
+nohup python3 ./home/jha0007/api-gpt/serve.py &
+
+# tar -zcvf slim_weights.tar.gz ./slim_model/
+# gsutil cp ./slim_weights.tar.gz gs://gpt-j-trainer-sql/gpt_fast_deploy_slim/
 
 # To convert the model to fp16 for tpu inference, select a saved version
 
