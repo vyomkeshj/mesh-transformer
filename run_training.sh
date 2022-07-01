@@ -14,7 +14,7 @@ python3 ./device_train.py --config=$CONFIG_FILE --tune-model-path=gs://gpt-j-tra
 # you can find the correct one in the cloud bucket at gpt-j-trainer-sql/
 #CHECKPOINT_TO_SAVE=1438
 
-python3 slim_model.py --config=$CONFIG_FILE --ckpt-step=$CHECKPOINT_TO_SAVE --f16
+python3 slim_model.py --config=$CONFIG_FILE --f16
 
 tar -zcvf slim_weights.tar.gz ./slim_model/
 gsutil cp ./slim_weights.tar.gz gs://gpt-j-trainer-sql/gpt_fast_deploy_slim/
