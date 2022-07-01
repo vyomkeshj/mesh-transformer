@@ -32,9 +32,9 @@
     "pubmedqa"
   ],
   "val_batches": 100,
-  "val_every": 20,
-  "ckpt_every": 100,
-  "keep_every": 100,
+  "val_every": 150,
+  "ckpt_every": 200,
+  "keep_every": 200,
   "name": "sql_cleaned",
   "wandb_project": "sql_mesh",
   "comment": ""

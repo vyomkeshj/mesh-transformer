@@ -13,10 +13,13 @@ python3 ./device_train.py --config=$CONFIG_FILE --tune-model-path=gs://gpt-j-tra
 
 # you can find the correct one in the cloud bucket at gpt-j-trainer-sql/
 #CHECKPOINT_TO_SAVE=1438
-tar -zcvf weights.tar.gz ./compressed_weights.
+
+python3 slim_model.py --config=$CONFIG_FILE --ckpt-step=$CHECKPOINT_TO_SAVE --f16
+
+tar -zcvf slim_weights.tar.gz ./slim_model/
+gsutil cp ./slim_weights.tar.gz gs://gpt-j-trainer-sql/gpt_fast_deploy_slim/
 
 # To convert the model to fp16 for tpu inference, select a saved version
-#python3 slim_model.py --config=$CONFIG_FILE --ckpt-step=$CHECKPOINT_TO_SAVE --f16
 
 # To convert the model to pytorch weights for hugging face inference
 #python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/sql_cleaned_slim_f16/step_""$CHECKPOINT_TO_SAVE" --config $CONFIG_FILE --output-path "gs://gpt-j-trainer-sql/hf_"$CHECKPOINT_TO_SAVE/ --cpu
