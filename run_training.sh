@@ -7,7 +7,7 @@ python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat.txt "spider
 #python3 create_finetune_tfrecords.py ./data/sql_data/validation_wikisql.txt "validation_wikisql" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=$CONFIG_FILE --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
+#python3 ./device_train.py --config=$CONFIG_FILE --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
 
 # To make this model available for testing
 
