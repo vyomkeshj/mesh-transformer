@@ -53,14 +53,14 @@ if __name__ == "__main__":
     mesh_shape = (jax.device_count() // cores_per_replica, cores_per_replica)
     devices = np.array(jax.devices()).reshape(mesh_shape)
 
-    # with open(f"gs://{bucket}/{model_dir}/meta.json", "r") as f:
-    #     meta = json.load(f)
-    #
-    # if args.ckpt_step > -1:
-    #     ckpt_step = args.ckpt_step
-    # else:
-    #     ckpt_step = meta["checkpoints"][-1]
-    # print(f"using checkpoint {ckpt_step}")
+    with open(f"gs://{bucket}/{model_dir}/meta.json", "r") as f:
+        meta = json.load(f)
+
+    if args.ckpt_step > -1:
+        ckpt_step = args.ckpt_step
+    else:
+        ckpt_step = meta["checkpoints"][-1]
+    print(f"using checkpoint {ckpt_step}")
 
     with jax.experimental.maps.mesh(devices, ('dp', 'mp')):
         network = CausalTransformer(params)
@@ -78,7 +78,5 @@ if __name__ == "__main__":
         suffix = "_slim_f16" if args.f16 else "_slim"
 
         for i in range(cores_per_replica):
-            # write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
-            write_ckpt(network.state,"./slim_model/", i)
-
+            write_ckpt(network.state, f"gs://{bucket}/gpt_sql_slim/", i)
             print(f"written shard {i}")
