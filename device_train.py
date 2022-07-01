@@ -70,7 +70,8 @@ def save(network, step, bucket, path, mp, aux=None, keep_n=3, delete_old=True):
     start = time.time()
     res = []
     for shard_id in range(mp):
-        write_ckpt(network.state, f"gs://{bucket}/{path}/step_{step}/", shard_id)
+        # write_ckpt(network.state, f"gs://{bucket}/{path}/step_{step}/", shard_id)
+        write_ckpt(network.state, f"gs://{bucket}/{path}/gpt_sql/", shard_id)
 
     print(f"Wrote checkpoint in {time.time() - start:.06}s")
 
@@ -89,14 +90,14 @@ def save(network, step, bucket, path, mp, aux=None, keep_n=3, delete_old=True):
         except:
             print(f"failed to delete the aux state for {step}")
 
-        if delete_old:
-            print(f"deleting checkpoint {ckpt_to_delete}")
-            for blob in client.list_blobs(bucket, prefix=f"{path}/step_{ckpt_to_delete}/"):
-                # print(f"deleting {blob.name}")
-                assert path in blob.name
-                blob.delete()
-        else:
-            print(f"keeping checkpoint {ckpt_to_delete}")
+        # if delete_old:
+        #     print(f"deleting checkpoint {ckpt_to_delete}")
+        #     for blob in client.list_blobs(bucket, prefix=f"{path}/step_{ckpt_to_delete}/"):
+        #         # print(f"deleting {blob.name}")
+        #         assert path in blob.name
+        #         blob.delete()
+        # else:
+        #     print(f"keeping checkpoint {ckpt_to_delete}")
 
     all_aux[step] = aux
     meta["aux"] = all_aux

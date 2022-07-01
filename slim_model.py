@@ -66,7 +66,7 @@ if __name__ == "__main__":
         network = CausalTransformer(params)
 
         start = time.time()
-        network.state = read_ckpt(network.state, f"gs://{bucket}/{model_dir}/step_{ckpt_step}/", devices.shape[1])
+        network.state = read_ckpt(network.state, f"gs://{bucket}/{model_dir}/gpt_sql/", devices.shape[1])
         print(f"network loaded in {time.time() - start:.06}s")
 
         start = time.time()
@@ -78,5 +78,7 @@ if __name__ == "__main__":
         suffix = "_slim_f16" if args.f16 else "_slim"
 
         for i in range(cores_per_replica):
-            write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
+            # write_ckpt(network.state, f"gs://{bucket}/{model_dir}{suffix}/step_{ckpt_step}/", i)
+            write_ckpt(network.state,"./slim_model/", i)
+
             print(f"written shard {i}")
