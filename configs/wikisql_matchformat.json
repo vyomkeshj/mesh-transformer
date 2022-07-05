@@ -33,8 +33,8 @@
     "pubmedqa"
   ],
   "val_batches": 100,
-  "val_every": 400,
-  "ckpt_every": 1000,
+  "val_every": 150,
+  "ckpt_every": 1500,
   "keep_every": 3000,
   "name": "GPT3_6B_sql",
   "wandb_project": "sql_mesh",
