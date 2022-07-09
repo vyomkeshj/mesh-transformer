@@ -17,8 +17,8 @@ python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-mod
 #python3 ~/mesh-transformer/create_finetune_tfrecords.py /home/jha0007/bigdiks/github-downloader/github_data "sql_train" --output-dir=/home/jha0007/bigdiks/ --normalize-with-ftfy
 python3 slim_model.py --config=$CONFIG_FILE --f16
 #
-cp -r gs://gpt-j-trainer-sql/gpt_sql_slim_wsql/ ./home/jha0007/bigdiks/slim_model/
-#nohup python3 ./home/jha0007/api-gpt/serve.py &
+cp -r gs://gpt-j-trainer-sql/gpt_sql_slim_wsql/ /home/jha0007/bigdiks/slim_model/
+#nohup python3 serve.py &
 
 python3 -m streamlit run streamlit_app.py --server.port 8000
 # To convert the model to fp16 for tpu inference, select a saved version
