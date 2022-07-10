@@ -25,6 +25,8 @@ fi
 
 python3 ./generate_configs.py $CONFIG_FILE $TRAIN_FILE $VAL_FILE $TFRECORDS_TRAIN $TFRECORDS_VAL $LR_START $LR_END $MODEL_DIR
 
+cat $CONFIG_FILE
+
 # To run training with a config and a previous saved model checkpoint
 python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
 
