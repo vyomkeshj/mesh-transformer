@@ -6,10 +6,10 @@ args = sys.argv
 config_name = args[0]
 train_file = args[1]
 val_file = args[2]
-train_records = args[3]
-val_records = args[4]
-lr_start = args[5]
-lr_end = args[6]
+train_records = int(args[3])
+val_records = int(args[4])
+lr_start = int(args[5])
+lr_end = int(args[6])
 model_dir = args[7]
 
 if lr_start == "default":
