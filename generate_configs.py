@@ -10,15 +10,19 @@ train_file = args[2]
 val_file = args[3]
 train_records = int(args[4])
 val_records = int(args[5])
-lr_start = int(args[6])
-lr_end = int(args[7])
+lr_start = args[6]
+lr_end = args[7]
 model_dir = args[8]
 
 if lr_start == "default":
     lr_start = 0.5e-5
+else:
+    lr_start = int(lr_start)
 
 if lr_end == "default":
     lr_end = 5e-7
+else:
+    lr_end = int(lr_end)
 
 if model_dir == "default":
     model_dir = "sql_wikisql_reformat"
