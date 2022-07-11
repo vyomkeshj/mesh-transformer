@@ -12,6 +12,8 @@ lr_start = int(args[5])
 lr_end = int(args[6])
 model_dir = args[7]
 
+print(args)
+
 if lr_start == "default":
     lr_start = 0.5e-5
 
