@@ -5,14 +5,14 @@ args = sys.argv
 
 print(args)
 
-config_name = args[0]
-train_file = args[1]
-val_file = args[2]
-train_records = int(args[3])
-val_records = int(args[4])
-lr_start = int(args[5])
-lr_end = int(args[6])
-model_dir = args[7]
+config_name = args[1]
+train_file = args[2]
+val_file = args[3]
+train_records = int(args[4])
+val_records = int(args[5])
+lr_start = int(args[6])
+lr_end = int(args[7])
+model_dir = args[8]
 
 if lr_start == "default":
     lr_start = 0.5e-5
