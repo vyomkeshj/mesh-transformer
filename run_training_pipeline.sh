@@ -9,7 +9,7 @@ CONFIG_FILE="./configs/${CONFIG_FILE_NAME}.json"
 if [ $TRAIN_FILE != "default" ]; then
     rm "./data/sql_data/${TRAIN_FILE}.txt"
     gsutil -m cp "gs://gpt-j-trainer-sql/dataset/${TRAIN_FILE}.txt" "./data/sql_data/${TRAIN_FILE}.txt"
-    TFRECORDS_TRAIN=$(python3 create_finetune_tfrecords.py "./data/sql_data/${TRAIN_FILE}.txt" $TRAIN_FILE --normalize-with-ftfy --n-repack-epochs 1 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/)
+    TFRECORDS_TRAIN=$(python3 create_finetune_tfrecords.py "./data/sql_data/${TRAIN_FILE}.txt" $TRAIN_FILE --normalize-with-ftfy --n-repack-epochs 1 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/ | grep -o -P '(?<=dropped).*(?=tokens)')
 else
     echo "Train File not found. Stopping!!!"
     exit 1
@@ -18,7 +18,7 @@ fi
 if [ $VAL_FILE != "default" ]; then
     rm "./data/sql_data/${VAL_FILE}.txt"
     gsutil -m cp "gs://gpt-j-trainer-sql/dataset/${VAL_FILE}.txt" "./data/sql_data/${VAL_FILE}.txt"
-    TFRECORDS_VAL=$(python3 create_finetune_tfrecords.py "./data/sql_data/${VAL_FILE}.txt" $VAL_FILE --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/)
+    TFRECORDS_VAL=$(python3 create_finetune_tfrecords.py "./data/sql_data/${VAL_FILE}.txt" $VAL_FILE --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ | grep -o -P '(?<=dropped).*(?=tokens)')
 else
     echo "Validation File not found. SKIPPING!!!"
 fi
@@ -28,7 +28,7 @@ python3 ./generate_configs.py $CONFIG_FILE $TRAIN_FILE $VAL_FILE $TFRECORDS_TRAI
 cat $CONFIG_FILE
 
 # To run training with a config and a previous saved model checkpoint
-# python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
+python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
 
 # To make this model available for testing
 
@@ -36,12 +36,12 @@ cat $CONFIG_FILE
 #CHECKPOINT_TO_SAVE=1438
 
 #python3 ~/mesh-transformer/create_finetune_tfrecords.py /home/jha0007/bigdiks/github-downloader/github_data "sql_train" --output-dir=/home/jha0007/bigdiks/ --normalize-with-ftfy
-# python3 slim_model.py --config=$CONFIG_FILE --f16
+python3 slim_model.py --config=$CONFIG_FILE --f16
 #
-# cp -r gs://gpt-j-trainer-sql/gpt_sql_slim_wsql/ ./home/jha0007/bigdiks/slim_model/
+cp -r gs://gpt-j-trainer-sql/gpt_sql_slim_wsql/ ./home/jha0007/bigdiks/slim_model/
 #nohup python3 ./home/jha0007/api-gpt/serve.py &
 
-# python3 -m streamlit run streamlit_app.py --server.port 8000
+python3 -m streamlit run streamlit_app.py --server.port 8000
 # To convert the model to fp16 for tpu inference, select a saved version
 
 # To convert the model to pytorch weights for hugging face inference
