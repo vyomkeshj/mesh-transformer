@@ -7,7 +7,7 @@ CONFIG_FILE="./configs/wikisql_matchformat.json"
 #python3 create_finetune_tfrecords.py ./data/sql_data/test_wsql_mf.txt "wsql_reformat_val" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=./configs/pile.json --tune-model-path=gs://gpt-j-trainer-sql/step_383500/
+python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile/
 
 # To make this model available for testing
 
@@ -25,3 +25,6 @@ python3 -m streamlit run streamlit_app.py --server.port 8000
 python3 slim_model.py --config="./configs/pile.json" --f16 --cpu
 # To convert the model to pytorch weights for hugging face inference
 python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/gpt-sql-pile/" --config ./configs/pile.json --output-path "gs://gpt-j-trainer-sql/hf_sql_retrain"
+
+
+python3 slim_model.py --config="./configs/wikisql_matchformat.json" --f16 --cpu
