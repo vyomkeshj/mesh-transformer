@@ -17,11 +17,11 @@ python3 ./device_train.py --config=./configs/pile.json --tune-model-path=gs://gp
 #python3 ~/mesh-transformer/create_finetune_tfrecords.py /home/jha0007/bigdiks/github-downloader/github_data "sql_train" --output-dir=/home/jha0007/bigdiks/ --normalize-with-ftfy
 python3 slim_model.py --config=$CONFIG_FILE --f16
 #
-cp -r gs://gpt-j-trainer-sql/gpt_sql_slim_wsql/ /home/jha0007/bigdiks/slim_model/
+cp -r gs://gpt-j-trainer-sql/gpt_sql_pile/ /home/jha0007/bigdiks/slim_model/
 #nohup python3 serve.py &
 
 python3 -m streamlit run streamlit_app.py --server.port 8000
 # To convert the model to fp16 for tpu inference, select a saved version
-python3 slim_model.py --config="./configs/pile.json" --f16
+python3 slim_model.py --config="./configs/pile.json" --f16 --cpu
 # To convert the model to pytorch weights for hugging face inference
-python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/sql_cleaned_slim_f16/step_""$CHECKPOINT_TO_SAVE" --config $CONFIG_FILE --output-path "gs://gpt-j-trainer-sql/hf_"$CHECKPOINT_TO_SAVE/ --cpu
+python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/gpt-sql-pile/" --config ./configs/pile.json --output-path "gs://gpt-j-trainer-sql/hf_sql_retrain"
