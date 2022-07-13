@@ -22,6 +22,6 @@ cp -r gs://gpt-j-trainer-sql/gpt_sql_slim_wsql/ /home/jha0007/bigdiks/slim_model
 
 python3 -m streamlit run streamlit_app.py --server.port 8000
 # To convert the model to fp16 for tpu inference, select a saved version
-
+python3 slim_model.py --config="./configs/pile.json" --f16
 # To convert the model to pytorch weights for hugging face inference
-#python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/sql_cleaned_slim_f16/step_""$CHECKPOINT_TO_SAVE" --config $CONFIG_FILE --output-path "gs://gpt-j-trainer-sql/hf_"$CHECKPOINT_TO_SAVE/ --cpu
+python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/sql_cleaned_slim_f16/step_""$CHECKPOINT_TO_SAVE" --config $CONFIG_FILE --output-path "gs://gpt-j-trainer-sql/hf_"$CHECKPOINT_TO_SAVE/ --cpu
