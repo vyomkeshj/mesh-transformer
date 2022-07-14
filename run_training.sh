@@ -9,6 +9,7 @@ python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat_nj.txt "spi
 
 # To run training with a config and a previous saved model checkpoint
 python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile/
+python3 ./device_train.py --config=./configs/spider_no_join.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
 
 # To make this model available for testing
 
