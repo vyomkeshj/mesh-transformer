@@ -5,6 +5,7 @@ CONFIG_FILE="./configs/wikisql_matchformat.json"
 # To convert the data to tfrecords and upload to bucket
 #python3 create_finetune_tfrecords.py ./data/sql_data/train_wsql_mf.txt "wsql_reformat_train" --normalize-with-ftfy --n-repack-epochs 1 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/
 #python3 create_finetune_tfrecords.py ./data/sql_data/test_wsql_mf.txt "wsql_reformat_val" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
+python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat_nj.txt "spider_no_join" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 2
 
 # To run training with a config and a previous saved model checkpoint
 python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile/
