@@ -28,3 +28,5 @@ python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/gpt-sql-pile/" -
 
 
 python3 slim_model.py --config="./configs/wikisql_matchformat.json" --f16 --cpu
+
+gsutil -m cp -r gs://gpt-j-trainer-sql/gpt_sql_pile_wsql/ /home/jha0007/bigdiks/slim_model/
