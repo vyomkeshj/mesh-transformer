@@ -16,7 +16,7 @@ with open(file_path, 'r') as json_file:
             continue
         # if (len(items) > 0) and ("select" in row.lower()) and ("from" in row.lower()):
         if len(items) > 0:
-            res = row.replace("\\n", " ").replace("\\t", " ").replace("\\r", " ").replace("\n", " ").replace("\t", " ").replace("\r", " ").replace("\/", "/").replace("\x", "x")
+            res = row.replace("\\n", " ").replace("\\t", " ").replace("\\r", " ").replace("\n", " ").replace("\t", " ").replace("\r", " ").replace("\/", "/").replace("\x", "x").replace('\"', '"')
             res = re.sub('\s+', ' ', res)
             result.append(res)
     res_file_path = f"{file_path.split('.')[0]}_cleaned.{file_path.split('.')[1]}"
