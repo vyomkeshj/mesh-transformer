@@ -1,0 +1,37 @@
+{
+  "layers": 28,
+  "d_model": 4096,
+  "n_heads": 16,
+  "n_vocab": 50400,
+  "norm": "layernorm",
+  "pe": "rotary",
+  "pe_rotary_dims": 64,
+  "seq": 2048,
+  "cores_per_replica": 8,
+  "per_replica_batch": 1,
+  "gradient_accumulation_steps": 32,
+  "warmup_steps": 140,
+  "anneal_steps": 1278,
+  "lr": 1e-5,
+  "end_lr": 1e-6,
+  "weight_decay": 0.1,
+  "total_steps": 1418,
+  "tpu_size": 8,
+  "bucket": "gpt-j-trainer-sql",
+  "model_dir": "sql_pile_reduced",
+  "train_set": "cleaned-pile_gh.train.index",
+  "val_set": {
+    "wikisql": "wikisql.validation.index",
+    "spider": "spider.validation.index"
+  },
+  "eval_harness_tasks": [
+    "pubmedqa"
+  ],
+  "val_batches": 100,
+  "val_every": 200,
+  "ckpt_every": 3000,
+  "keep_every": 6000,
+  "name": "GPT3_6B_sql",
+  "wandb_project": "sql_mesh",
+  "comment": ""
+}
