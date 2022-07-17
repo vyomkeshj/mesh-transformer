@@ -8,7 +8,7 @@ CONFIG_FILE="./configs/wikisql_matchformat.json"
 python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat_nj.txt "spider_no_join" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 2
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=./configs/wikisql_matchformat.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile/
+python3 ./device_train.py --config=./configs/pile_reduced.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
 python3 ./device_train.py --config=./configs/spider_no_join.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
 
 # To make this model available for testing
