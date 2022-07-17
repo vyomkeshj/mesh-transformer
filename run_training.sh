@@ -19,7 +19,7 @@ python3 ./device_train.py --config=./configs/spider_no_join.json --tune-model-pa
 #python3 ~/mesh-transformer/create_finetune_tfrecords.py /home/jha0007/bigdiks/github-downloader/github_data "sql_train" --output-dir=/home/jha0007/bigdiks/ --normalize-with-ftfy
 python3 slim_model.py --config=$CONFIG_FILE --f16
 #
-cp -r gs://gpt-j-trainer-sql/gpt_sql_pile/ /home/jha0007/bigdiks/slim_model/
+cp -r gs://gpt-j-trainer-sql/gpt_sql_pile_wsql_train2/ /home/jha0007/bigdiks/slim_model/
 #nohup python3 serve.py &
 
 python3 -m streamlit run streamlit_app.py --server.port 8000
