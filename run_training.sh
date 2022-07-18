@@ -5,10 +5,10 @@ CONFIG_FILE="./configs/wikisql_matchformat.json"
 # To convert the data to tfrecords and upload to bucket
 #python3 create_finetune_tfrecords.py ./data/sql_data/train_wsql_mf.txt "wsql_reformat_train" --normalize-with-ftfy --n-repack-epochs 1 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/
 #python3 create_finetune_tfrecords.py ./data/sql_data/test_wsql_mf.txt "wsql_reformat_val" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
-python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat_nj.txt ./data/sql_data/spider_reformat_nj.txt /home/jha0007/github-downloader/github_data/data_0_time1657886405_default_cleaned.jsonl "sql_4_epoch" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 4
+python3 create_finetune_tfrecords.py ./all_data/ "sql_4_epoch" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 4
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=./configs/pile_reduced2.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile_reduced/gpt_sql/
+python3 ./device_train.py --config=./configs/all_data.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile_reduced/step_383500/
 python3 ./device_train.py --config=./configs/spider_no_join.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
 
 # To make this model available for testing
