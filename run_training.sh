@@ -8,7 +8,7 @@ CONFIG_FILE="./configs/wikisql_matchformat.json"
 python3 create_finetune_tfrecords.py ./data/sql_data/spider_reformat_nj.txt "spider_no_join" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 2
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=./configs/pile_reduced.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
+python3 ./device_train.py --config=./configs/pile_reduced2.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile_reduced/gpt_sql/
 python3 ./device_train.py --config=./configs/spider_no_join.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
 
 # To make this model available for testing
@@ -29,6 +29,6 @@ python3 slim_model.py --config="./configs/pile.json" --f16 --cpu
 python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/gpt-sql-pile/" --config ./configs/pile.json --output-path "gs://gpt-j-trainer-sql/hf_sql_retrain"
 
 
-python3 slim_model.py --config="./configs/wikisql_matchformat.json" --f16 --cpu
+python3 slim_model.py --config="./configs/pile_reduced2.json" --f16
 
 gsutil -m cp -r gs://gpt-j-trainer-sql/gpt_sql_pile_wsql/ /home/jha0007/bigdiks/slim_model/
