@@ -167,7 +167,7 @@ tokenizers==0.12.1
 toml==0.10.2
 toolz==0.11.2
 torch==1.11.0
-tqdm==4.47.0
+tqdm==4.62.1
 tqdm-multiprocess==0.0.11
 transformers==4.20.0
 typepy==1.3.0
