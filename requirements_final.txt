@@ -31,7 +31,7 @@ dill==0.3.5.1
 dm-haiku==0.0.5
 dm-tree==0.1.7
 docker-pycreds==0.4.0
-dyNET38==2.1
+#dyNET38==2.1
 einops==0.3.2
 etils==0.6.0
 fabric==2.6.0
