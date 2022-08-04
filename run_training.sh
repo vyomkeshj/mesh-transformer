@@ -5,10 +5,10 @@ CONFIG_FILE="./configs/wikisql_matchformat.json"
 # To convert the data to tfrecords and upload to bucket
 #python3 create_finetune_tfrecords.py ./data/sql_data/train_wsql_mf.txt "wsql_reformat_train" --normalize-with-ftfy --n-repack-epochs 1 --seed 16 --verbose --output-dir gs://gpt-j-trainer-sql/data/
 #python3 create_finetune_tfrecords.py ./data/sql_data/test_wsql_mf.txt "wsql_reformat_val" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
-python3 create_finetune_tfrecords.py ./all_data/ "sql_4_epoch" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 4
+python3 create_finetune_tfrecords.py ./data/sql_data/interleaved.txt "interleaved" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/ --n-repack-epochs 4
 
 # To run training with a config and a previous saved model checkpoint
-python3 ./device_train.py --config=./configs/all_data.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile_reduced/step_383500/
+python3 ./device_train.py --config=./configs/interleaved.json --tune-model-path=gs://gpt-j-trainer-sql/sql_pile_reduced2/gpt_sql/
 python3 ./device_train.py --config=./configs/spider_no_join.json --tune-model-path=gs://gpt-j-trainer-sql/wikisql_after_retraining/
 
 # To make this model available for testing
@@ -28,7 +28,10 @@ python3 slim_model.py --config="./configs/pile.json" --f16 --cpu
 # To convert the model to pytorch weights for hugging face inference
 python3 ./to_hf_weights.py --input-ckpt "gs://gpt-j-trainer-sql/gpt-sql-pile/" --config ./configs/pile.json --output-path "gs://gpt-j-trainer-sql/hf_sql_retrain"
 
+python3 slim_model.py --config="./configs/interleaved.json" --f16
 
 python3 slim_model.py --config="./configs/pile_reduced2.json" --f16
 
 gsutil cp -r gs://gpt-j-trainer-sql/gpt_sql_pile_wsql_train3/ /home/jha0007/bigdiks/slim_model/
+
+#python3 create_finetune_tfrecords.py ./data/sql_data/test_wsql_mf.txt "wsql_reformat_val" --normalize-with-ftfy --output-dir gs://gpt-j-trainer-sql/data/
