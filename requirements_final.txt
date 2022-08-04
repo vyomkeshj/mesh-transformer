@@ -66,8 +66,8 @@ idna==2.8
 importlib-metadata==4.11.4
 importlib-resources==5.8.0
 invoke==1.7.1
-jax==0.2.21
-jaxlib==0.1.71
+#jax==0.2.21
+#jaxlib==0.1.71
 jieba==0.42.1
 jmp==0.0.2
 joblib==0.16.0
