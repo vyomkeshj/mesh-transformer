@@ -75,7 +75,7 @@ jsonlines==2.0.0
 jsonschema==4.6.0
 keras==2.6.0
 Keras-Preprocessing==1.1.2
-libtpu-nightly==0.1.dev20210809
+#libtpu-nightly==0.1.dev20210809
 lm-dataformat==0.0.20
 lm-eval @ git+https://github.com/EleutherAI/lm-evaluation-harness/@4645584fb92c77ccd7a1835bdfd70bfa04f7e83f
 Markdown==3.3.7
